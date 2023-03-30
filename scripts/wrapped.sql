@@ -73,9 +73,9 @@ LEFT JOIN (
         LIMIT 1
         ) a
     LEFT JOIN track b
-    on a.track_id = b.track_id) top_track
+    ON a.track_id = b.track_id) top_track
 
-on username.user_id = top_track.user_id
+ON username.user_id = top_track.user_id
 
 LEFT JOIN (
     -- -- top genre
@@ -91,9 +91,9 @@ LEFT JOIN (
         LIMIT 1
     ) a
     LEFT JOIN genre b
-    on a.genre_id = b.genre_id) top_genre
+    ON a.genre_id = b.genre_id) top_genre
 
-on username.user_id = top_genre.user_id;
+ON username.user_id = top_genre.user_id;
 
 
 
@@ -149,9 +149,9 @@ LEFT JOIN (
         LIMIT 1
         ) a
     LEFT JOIN track b
-    on a.track_id = b.track_id) top_track
+    ON a.track_id = b.track_id) top_track
 
-on username.user_id = top_track.user_id
+ON username.user_id = top_track.user_id
 
 LEFT JOIN (
     -- -- top genre
@@ -167,9 +167,9 @@ LEFT JOIN (
         LIMIT 1
     ) a
     LEFT JOIN genre b
-    on a.genre_id = b.genre_id) top_genre
+    ON a.genre_id = b.genre_id) top_genre
 
-on username.user_id = top_genre.user_id;
+ON username.user_id = top_genre.user_id;
 
 
 
@@ -224,9 +224,9 @@ LEFT JOIN (
         LIMIT 1
         ) a
     LEFT JOIN track b
-    on a.track_id = b.track_id) top_track
+    ON a.track_id = b.track_id) top_track
 
-on username.user_id = top_track.user_id
+ON username.user_id = top_track.user_id
 
 LEFT JOIN (
     -- -- top genre
@@ -242,6 +242,6 @@ LEFT JOIN (
         LIMIT 1
     ) a
     LEFT JOIN genre b
-    on a.genre_id = b.genre_id) top_genre
+    ON a.genre_id = b.genre_id) top_genre
 
-on username.user_id = top_genre.user_id;
+ON username.user_id = top_genre.user_id;

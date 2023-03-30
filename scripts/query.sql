@@ -54,7 +54,7 @@ FROM(
     on track_artist.artist_id = artist.artist_id
     Where artist_name LIKE '%Beatles%') a
 LEFT JOIN track b
-on a.track_id = b.track_id;
+ON a.track_id = b.track_id;
 
 -- Search album by name
 SELECT *
@@ -70,7 +70,7 @@ FROM(
     on album_artist.artist_id = artist.artist_id
     Where artist_name LIKE '%Beatles%') a
 LEFT JOIN album b
-on a.album_id = b.album_id;
+ON a.album_id = b.album_id;
 
 
 -- DISCOVER
