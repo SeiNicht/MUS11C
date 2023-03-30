@@ -16,7 +16,7 @@ VALUES
 ('ART0001', 'Michael Jackson', 'American singer, songwriter, and dancer'),
 ('ART0002', 'Pink Floyd', 'English rock band'),
 ('ART0003', 'The Beatles', 'English rock band'),
-('ART0004', 'Adele', 'English singer-songwriter'),
+('ART0004', 'Ed Sheeran', 'English singer-songwriter'),
 ('ART0005', 'AC/DC', 'Australian rock band');
 
 -- Inserting data into the album_artist table
@@ -63,17 +63,14 @@ INSERT INTO `track_artist` (`track_id`, `artist_id`) VALUES
 ('TR0005', 'ART0005');
 
 -- Inserting data into the user table
--- INSERT INTO `user`(`user_id`, `user_name`, `email`, `password`, `avatar`, `register_datatime`, `last_login_datetime`) VALUES 
--- ('USR0001', 'John Doe', 'johndoe@example.com', 'password123', 'https://example.com/avatar1.jpg', '2022-01-01 10:00:00', '2022-01-01 12:00:00'),
--- ('USR0002', 'Jane Smith', 'janesmith@example.com', 'letmein', 'https://example.com/avatar2.jpg', '2022-01-02 11:00:00', '2022-01-03 15:00:00'),
--- ('USR0003', 'Bob Johnson', 'bobjohnson@example.com', 'password1234', 'https://example.com/avatar3.jpg', '2022-01-03 12:00:00', '2022-01-04 14:00:00'),
--- ('USR0004', 'Alice Johnson', 'alice.johnson@example.com', 'password123', 'https://example.com/avatars/alice.jpg', '2022-01-01 12:00:00', '2022-01-01 12:00:00'),
--- ('USR0005', 'Bob Smith', 'bob.smith@example.com', 'abc123', 'https://example.com/avatars/bob.jpg', '2022-01-02 09:30:00', '2022-01-03 14:15:00');
-CALL `register_user`('John Doe', 'johndoe@example.com', 'password123', 'https://example.com/avatar1.jpg');
-CALL `register_user`('Jane Smith', 'janesmith@example.com', 'letmein', 'https://example.com/avatar2.jpg');
-CALL `register_user`('Bob Johnson', 'bobjohnson@example.com', 'password1234', 'https://example.com/avatar3.jpg');
-CALL `register_user`('Alice Johnson', 'alice.johnson@example.com', 'password123', 'https://example.com/avatars/alice.jpg');
-CALL `register_user`('Bob Smith', 'bob.smith@example.com', 'abc123', 'https://example.com/avatars/bob.jpg');
+INSERT INTO `user`(`user_id`, `user_name`, `email`, `password`, `avatar`, `register_datetime`, `last_login_datetime`) VALUES 
+('USR0001', 'John Doe', 'johndoe@example.com', 'password123', 'https://example.com/avatar1.jpg', '2022-01-01 10:00:00', '2022-01-01 12:00:00'),
+('USR0002', 'Jane Smith', 'janesmith@example.com', 'letmein', 'https://example.com/avatar2.jpg', '2022-01-02 11:00:00', '2022-01-03 15:00:00'),
+('USR0003', 'Bob Johnson', 'bobjohnson@example.com', 'password1234', 'https://example.com/avatar3.jpg', '2022-01-03 12:00:00', '2022-01-04 14:00:00'),
+('USR0004', 'Alice Johnson', 'alice.johnson@example.com', 'password123', 'https://example.com/avatars/alice.jpg', '2022-01-01 12:00:00', '2022-01-01 12:00:00'),
+('USR0005', 'Bob Smith', 'bob.smith@example.com', 'abc123', 'https://example.com/avatars/bob.jpg', '2022-01-02 09:30:00', '2022-01-03 14:15:00');
+-- Register
+CALL `register_user`('Sarah Lee', 'sarahlee@example.com', 'mypassword', 'https://example.com/avatars/lee.jpg');
 -- Test if email duplicates
 -- CALL `register_user`('Test User', 'johndoe@example.com', 'testpwd', 'https://example.com/testavatar.jpg');
 
@@ -164,15 +161,26 @@ INSERT INTO `like_album` (`user_id`, `album_id`, `like_datetime`) VALUES
 
 -- Inserting data into the play table
 INSERT INTO `play` (`play_id`, `track_id`, `user_id`, `play_datetime`) VALUES
-('PLAY0001', 'TR0001', 'USR0001', '2016-08-22 09:15:00'),
-('PLAY0002', 'TR0005', 'USR0005', '2015-12-10 15:30:00'),
-('PLAY0003', 'TR0002', 'USR0002', '2017-05-01 13:45:00'),
-('PLAY0004', 'TR0004', 'USR0002', '2019-09-05 20:10:00'),
-('PLAY0005', 'TR0005', 'USR0003', '2016-10-12 11:55:00'),
-('PLAY0006', 'TR0002', 'USR0003', '2020-02-18 16:40:00'),
-('PLAY0007', 'TR0003', 'USR0004', '2017-07-06 14:20:00'),
-('PLAY0008', 'TR0005', 'USR0004', '2018-04-23 09:05:00'),
-('PLAY0009', 'TR0001', 'USR0005', '2019-11-17 12:50:00'),
-('PLAY0010', 'TR0004', 'USR0005', '2016-06-29 18:25:00'),
-('PLAY0011', 'TR0004', 'USR0005', '2016-06-29 18:25:00'),
-('PLAY0012', 'TR0004', 'USR0005', '2016-06-29 18:25:00');
+('PLAY0001', 'TR0001', 'USR0001', '2022-12-22 09:15:00'),
+('PLAY0002', 'TR0005', 'USR0005', '2022-12-10 15:30:00'),
+('PLAY0003', 'TR0002', 'USR0002', '2022-12-01 13:45:00'),
+('PLAY0004', 'TR0004', 'USR0002', '2022-12-05 20:10:00'),
+('PLAY0005', 'TR0005', 'USR0003', '2023-03-12 11:55:00'),
+('PLAY0006', 'TR0002', 'USR0003', '2023-02-18 16:40:00'),
+('PLAY0007', 'TR0003', 'USR0004', '2023-03-06 14:20:00'),
+('PLAY0008', 'TR0005', 'USR0004', '2023-03-23 09:05:00'),
+('PLAY0009', 'TR0001', 'USR0005', '2023-02-17 12:50:00'),
+('PLAY0010', 'TR0004', 'USR0005', '2023-03-12 18:25:00'),
+('PLAY0011', 'TR0004', 'USR0005', '2023-03-29 18:25:00'),
+('PLAY0012', 'TR0004', 'USR0005', '2023-03-29 18:25:00'),
+('PLAY0013', 'TR0005', 'USR0005', '2023-01-10 15:30:00'),
+('PLAY0014', 'TR0002', 'USR0002', '2023-02-01 13:45:00'),
+('PLAY0015', 'TR0004', 'USR0002', '2023-03-05 20:10:00'),
+('PLAY0016', 'TR0005', 'USR0003', '2023-02-12 11:55:00'),
+('PLAY0017', 'TR0002', 'USR0003', '2023-03-28 16:40:00'),
+('PLAY0018', 'TR0003', 'USR0004', '2023-03-26 14:20:00'),
+('PLAY0019', 'TR0005', 'USR0004', '2023-03-27 09:05:00'),
+('PLAY0020', 'TR0001', 'USR0005', '2023-03-27 12:50:00'),
+('PLAY0021', 'TR0004', 'USR0005', '2023-03-29 19:25:00'),
+('PLAY0022', 'TR0004', 'USR0005', '2023-03-29 18:28:00'),
+('PLAY0023', 'TR0004', 'USR0005', '2023-03-29 18:25:00');

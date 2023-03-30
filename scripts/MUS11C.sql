@@ -76,7 +76,7 @@ CREATE TABLE `user`(
 	`email` VARCHAR(50) NOT NULL UNIQUE,
 	`password` VARCHAR(20) NOT NULL,
 	`avatar` VARCHAR(255) NOT NULL,
-	`register_datatime` DATETIME NOT NULL,
+	`register_datetime` DATETIME NOT NULL,
 	`last_login_datetime` DATETIME NOT NULL,
 	PRIMARY KEY (`user_id`)
 );
@@ -200,34 +200,43 @@ CREATE TABLE `play`(
 
 -- Create views
 -- Tracks most popular (most users have played)
-CREATE VIEW `top10_most_user_played` AS
+CREATE VIEW `most_user_played` AS
 SELECT play.track_id AS `Track ID`, track.track_name AS `Track`, COUNT(DISTINCT play.user_id) AS `User Count`
-FROM play
-LEFT JOIN track
+FROM `play`
+LEFT JOIN `track`
 ON play.track_id = track.track_id
 GROUP BY play.track_id
-ORDER BY `User Count` DESC
-LIMIT 10;
+ORDER BY `User Count` DESC;
 
 -- Tracks that played most times
-CREATE VIEW `top10_most_played` AS
+CREATE VIEW `most_played` AS
 SELECT play.track_id AS `Track ID`, track.track_name AS `Track`, COUNT(play.play_id) AS `User Count`
-FROM play
-LEFT JOIN track
+FROM `play`
+LEFT JOIN `track`
 ON track.track_id = play.track_id
 GROUP BY play.track_id
-ORDER BY `User Count` DESC
-LIMIT 10;
+ORDER BY `User Count` DESC;
 
 -- Tracks grouped by genre
 CREATE VIEW `genre_view` AS
 SELECT *
 FROM (
 SELECT track.genre_id AS `Genre ID`, genre.genre_name AS `Genre`, track_name AS `Track`
-From track
-Left join genre
-ON track.genre_id = genre.genre_id) as gr
+FROM `track`
+LEFT JOIN `genre`
+ON track.genre_id = genre.genre_id) AS gr
 ORDER BY `Genre ID`;
+
+-- Tracks grouped by language
+CREATE VIEW `language_view` AS
+SELECT *
+FROM (
+	SELECT track.language_id AS `Language ID`, language.language_name AS `Language`, track_name AS `Track`
+	FROM `track`
+	LEFT JOIN `language`
+	ON track.language_id = language.language_id
+) AS lr
+ORDER BY `Language ID`;
 
 
 -- Create stored procedure
@@ -255,7 +264,7 @@ BEGIN
     SET v_UserId = CONCAT('USR', LPAD(@max_id + 1, 4, '0'));
     
     -- Insert user data into the database
-    INSERT INTO `user` (`user_id`, `user_name`, `email`, `password`, `avatar`, `register_datatime`, `last_login_datetime`)
+    INSERT INTO `user` (`user_id`, `user_name`, `email`, `password`, `avatar`, `register_datetime`, `last_login_datetime`)
     VALUES (v_UserId, p_UserName, p_Email, p_Password, p_Avatar, NOW(), NOW());
     
     -- Commit the transaction
