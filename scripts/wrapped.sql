@@ -2,7 +2,7 @@
 
 -- total_play_time, top_artist, top_track, top_genre, num_artist
 SET @userid = 'USR0005';
-SET @opt = 0;
+-- SET @opt = 0;
 SET @requestYear = '2023';
 SET @requestMonth = '3';
 
@@ -21,6 +21,10 @@ SET @requestMonth = '3';
 --     RETURN result;
 -- END$$
 -- DELIMITER ;
+
+
+
+
 
 -- Weekly report
 -- -- get user name
