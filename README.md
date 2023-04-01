@@ -4,6 +4,6 @@ IN6205 Database Systems Group Project: **A database implementation of music app 
 
 Group member:
 
-- Dai Yiqing
 - Chen Hongjin
+- Dai Yiqing
 - Liu Meky
