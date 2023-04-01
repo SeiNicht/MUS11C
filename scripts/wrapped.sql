@@ -1,6 +1,6 @@
 -- WRAPPED
 
--- total_play_time, top_artist, top_track, top_genre, num_artist
+-- total_play_time, top_artist, top_track, top_genre
 SET @userid = 'USR0005';
 -- SET @opt = 0;
 SET @requestYear = '2023';
@@ -174,6 +174,7 @@ LEFT JOIN (
     ON a.genre_id = b.genre_id) top_genre
 
 ON username.user_id = top_genre.user_id;
+
 
 
 
